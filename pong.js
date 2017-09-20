@@ -173,6 +173,7 @@ class Pong
             chars.forEach((char, pos) => {
                 this._context.drawImage(this.CHARS[char|0], offset + pos * cw, 20);
             });
+            
         });
     }
     play()
@@ -222,7 +223,19 @@ class Pong
 
         this.draw();
     }
+
+    gameover() 
+  
+    {
+        if (players[0].score == 11 || players[1].score == 11)
+        {
+            print("GAME OVER");
+            reset();
+        }
+    };
+    
 }
+
 
 const canvas = document.querySelector('#pong');
 const pong = new Pong(canvas);
